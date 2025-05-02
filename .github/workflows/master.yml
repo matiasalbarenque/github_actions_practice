@@ -3,11 +3,16 @@ name: GitHub Action Practice
 on:
   push:
     branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref}}
+  cancel-in-progress: true
 
 jobs:
-  run-npm-on-ubuntu-22:
+  build:
     name: Run npm on Ubuntu
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
