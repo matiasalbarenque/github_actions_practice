@@ -2,7 +2,7 @@ name: GitHub Action Practice
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   run-npm-on-ubuntu-22:
